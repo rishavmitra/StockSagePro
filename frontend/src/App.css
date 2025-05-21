@@ -1,0 +1,245 @@
+/* Base styles */
+:root {
+  --primary-color: #2962ff;
+  --secondary-color: #0039cb;
+  --success-color: #00c853;
+  --danger-color: #ff1744;
+  --warning-color: #ffab00;
+  --info-color: #00b0ff;
+  
+  --light-bg: #f8f9fa;
+  --light-card-bg: #ffffff;
+  --light-text: #343a40;
+  --light-border: #dee2e6;
+  --light-input-bg: #ffffff;
+  
+  --dark-bg: #121212;
+  --dark-card-bg: #1e1e1e;
+  --dark-text: #e9ecef;
+  --dark-border: #343a40;
+  --dark-input-bg: #2c2c2c;
+  
+  --chart-grid: rgba(200, 200, 200, 0.2);
+  --transition-speed: 0.3s;
+}
+
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Theme styles */
+.light-theme {
+  background-color: var(--light-bg);
+  color: var(--light-text);
+}
+
+.dark-theme {
+  background-color: var(--dark-bg);
+  color: var(--dark-text);
+}
+
+/* Layout */
+.main-content {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Card styling */
+.card {
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.light-theme .card {
+  background-color: var(--light-card-bg);
+  border: 1px solid var(--light-border);
+}
+
+.dark-theme .card {
+  background-color: var(--dark-card-bg);
+  border: 1px solid var(--dark-border);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  font-weight: 500;
+  padding: 16px;
+  border-bottom: 1px solid var(--light-border);
+}
+
+.dark-theme .card-header {
+  border-bottom: 1px solid var(--dark-border);
+}
+
+.card-body {
+  padding: 16px;
+}
+
+/* Form elements */
+.form-control, .form-select {
+  border-radius: 6px;
+  transition: border-color var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.light-theme .form-control, .light-theme .form-select {
+  background-color: var(--light-input-bg);
+  border: 1px solid var(--light-border);
+  color: var(--light-text);
+}
+
+.dark-theme .form-control, .dark-theme .form-select {
+  background-color: var(--dark-input-bg);
+  border: 1px solid var(--dark-border);
+  color: var(--dark-text);
+}
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.25rem rgba(41, 98, 255, 0.25);
+}
+
+/* Button styling */
+.btn {
+  border-radius: 6px;
+  padding: 8px 16px;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+}
+
+.btn-success {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+}
+
+.btn-danger {
+  background-color: var(--danger-color);
+  border-color: var(--danger-color);
+}
+
+/* Chart container */
+.chart-container {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .chart-container {
+    height: 300px;
+  }
+}
+
+/* Footer */
+.footer {
+  padding: 20px 0;
+  margin-top: auto;
+  border-top: 1px solid var(--light-border);
+}
+
+.dark-theme .footer {
+  border-top: 1px solid var(--dark-border);
+}
+
+/* Stock price movement indicators */
+.price-up {
+  color: var(--success-color);
+}
+
+.price-down {
+  color: var(--danger-color);
+}
+
+/* Loading spinner */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+/* Stock table */
+.stock-table th, .stock-table td {
+  vertical-align: middle;
+}
+
+.light-theme .stock-table {
+  color: var(--light-text);
+}
+
+.dark-theme .stock-table {
+  color: var(--dark-text);
+}
+
+/* Predictions section */
+.prediction-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.prediction-method {
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 6px;
+  background-color: var(--light-card-bg);
+  border: 1px solid var(--light-border);
+  transition: all 0.2s;
+}
+
+.dark-theme .prediction-method {
+  background-color: var(--dark-card-bg);
+  border: 1px solid var(--dark-border);
+}
+
+.prediction-method.active {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+/* Alert messages */
+.alert {
+  border-radius: 6px;
+  padding: 12px 16px;
+}

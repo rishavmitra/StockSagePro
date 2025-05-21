@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>StockPredict API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #2980b9;
+            margin-top: 30px;
+        }
+        .endpoint {
+            background-color: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border-left: 4px solid #3498db;
+        }
+        .method {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        code {
+            background-color: #f1f1f1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>StockPredict API</h1>
+    <p>Welcome to the StockPredict API. This API provides stock data, technical indicators, and price predictions for Indian stocks.</p>
+    
+    <h2>Available Endpoints:</h2>
+    
+    <div class="endpoint">
+        <h3><span class="method">GET</span> /api/stock-symbols/</h3>
+        <p>Get a list of available stock symbols.</p>
+        <p>Optional query parameters:</p>
+        <ul>
+            <li><code>exchange</code>: Filter by exchange (e.g., NSE, BSE)</li>
+        </ul>
+    </div>
+    
+    <div class="endpoint">
+        <h3><span class="method">GET</span> /api/stock-data/{symbol}/</h3>
+        <p>Get historical data for a specific stock.</p>
+        <p>Optional query parameters:</p>
+        <ul>
+            <li><code>timeframe</code>: Time period (e.g., 1d, 1w, 1m, 3m, 6m, 1y, 5y)</li>
+        </ul>
+    </div>
+    
+    <div class="endpoint">
+        <h3><span class="method">POST</span> /api/technical-indicators/</h3>
+        <p>Calculate technical indicators for a stock.</p>
+        <p>Request body:</p>
+        <pre><code>{
+  "symbol": "RELIANCE",
+  "timeframe": "1y",
+  "indicators": ["sma", "ema", "rsi", "macd", "bollinger_bands"]
+}</code></pre>
+    </div>
+    
+    <div class="endpoint">
+        <h3><span class="method">GET</span> /api/prediction-models/</h3>
+        <p>Get a list of available prediction models.</p>
+    </div>
+    
+    <div class="endpoint">
+        <h3><span class="method">POST</span> /api/predict/</h3>
+        <p>Make price predictions for a stock.</p>
+        <p>Request body:</p>
+        <pre><code>{
+  "symbol": "RELIANCE",
+  "model_type": "linear",
+  "days_to_predict": 30
+}</code></pre>
+    </div>
+    
+    <div class="endpoint">
+        <h3><span class="method">GET</span> /api/market-overview/</h3>
+        <p>Get an overview of Indian market indices.</p>
+    </div>
+    
+    <div class="endpoint">
+        <h3><span class="method">GET</span> /api/search-stocks/</h3>
+        <p>Search for stocks by name or symbol.</p>
+        <p>Query parameters:</p>
+        <ul>
+            <li><code>q</code>: Search query (e.g., "Reliance", "HDFC")</li>
+        </ul>
+    </div>
+</body>
+</html>
